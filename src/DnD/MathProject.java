@@ -11,7 +11,11 @@ public class MathProject {
         System.out.println("Choose your class: 1 = Mage ($13), 2 = Knight ($18), 3 = Barbarian ($36), 4 = Archer ($60), 5 = Ranger($75)");
         Scanner s = new Scanner(System.in);
         try {
-            play(s.nextInt());
+            if (play(s.nextInt())) {
+                System.out.println("YOU WIN!!!!");
+            }else {
+                System.out.println("You lose.");
+            }
         }catch (Exception e) {
             System.out.println("Invalid input. Exiting.");
         }
@@ -19,7 +23,6 @@ public class MathProject {
 
     public static boolean play(int character) {
 
-        int sides = 0;
         switch (character) {
             case 1: {
                 return playing(6, 3, 3, 3);
@@ -66,7 +69,6 @@ public class MathProject {
         int r3 = roll(sides);
         System.out.println("3rd roll: you got a: " + r3);
         if (r3 > case3) {
-            System.out.println("Congrats! You won the game!!!!!");
             return true;
         }else {
             System.out.println("Aww! You lost the adventure!");
